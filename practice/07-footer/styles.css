@@ -1,0 +1,87 @@
+/* Practice 7 — Multi-column footer
+
+   Goal: Build a site footer with a brand block and four link columns: 5 blocks in a row on desktop, 2 columns on tablet, 1 column on mobile.
+
+   Rules (a screenshot cannot show these):
+     - Even when the page content is short, the footer sticks to the bottom of the window (the body is a flex column).
+     - The footer content has side padding of 5vw (not a fixed number of pixels).
+     - Desktop: the brand block is twice as wide as each link column. Tablet: the brand block takes the whole first row.
+     - The bottom bar keeps the copyright left and the legal links right; on mobile it stacks and is centered.
+
+   Target: see target.png (mobile 375 · tablet 768 · desktop 1280).
+   Drag the browser window between 320px and 1400px: there must be no
+   horizontal scrollbar at any width. Do not edit index.html.
+*/
+
+/* ===== GIVEN — already finished, you do not need to change it ===== */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.container { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.muted { color: var(--muted); }
+
+.intro { padding: 4rem 0; }
+.intro h1 { margin-bottom: 0.5rem; }
+
+.site-footer { padding-block: 3rem 1.5rem; background: #111827; color: #d1d5db; }
+.logo { font-size: 1.5rem; font-weight: 800; color: #fff; }
+.logo span { color: var(--accent); }
+.footer-brand p { margin: 0.75rem 0 1rem; max-width: 32ch; }
+.social { display: flex; flex-wrap: wrap; gap: 1rem; }
+.footer-col h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; margin-bottom: 0.75rem; }
+.footer-col li { padding: 0.2rem 0; }
+.footer-col a:hover, .social a:hover, .legal a:hover { color: #fff; }
+.footer-bottom { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid #374151; font-size: 0.9rem; }
+
+/* ===== YOUR CODE — layout + responsiveness ===== */
+

@@ -1,0 +1,94 @@
+/* Homework 7 — Sign-up split screen
+
+   Goal: Build a sign-up page with two halves: a picture panel and a form. On tablet and mobile the picture becomes a banner above the form.
+
+   Rules (a screenshot cannot show these):
+     - Desktop: two equal halves and the page is at least as tall as the window (min-height: 100vh). The text on the picture sits at the bottom of the panel.
+     - The form is centered in its half, but never wider than 440px.
+     - Tablet and mobile: one column. The picture banner is 30vh high on tablet and 22vh on mobile; on mobile the small paragraph in the banner is hidden.
+     - First name / Last name sit in one row, each takes half. On mobile they stack. Careful: inputs have their own minimum width and can push the row wider than the screen.
+     - "Remember me" is on the left and "Forgot password?" on the right, on one row, on every width.
+
+   Target: see target.png (mobile 375 · tablet 768 · desktop 1280).
+   Drag the browser window between 320px and 1400px: there must be no
+   horizontal scrollbar at any width. Do not edit index.html.
+*/
+
+/* ===== GIVEN — already finished, you do not need to change it ===== */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.container { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.muted { color: var(--muted); }
+
+.split-visual { background: #312e81 url("images/visual.svg") center / cover no-repeat; color: #fff; }
+.visual-text { padding: 2rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.45)); }
+.visual-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 0.5rem; }
+
+.split-form { padding: 2rem 1rem; background: var(--surface); }
+.form { padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); }
+.form h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+.form > p { margin-bottom: 1.5rem; }
+
+.field { margin-bottom: 1rem; }
+.field label { display: block; margin-bottom: 0.3rem; font-weight: 600; font-size: 0.9rem; }
+.field input { width: 100%; padding: 0.65rem 0.8rem; border: 1px solid #d1d5db; border-radius: 8px; font: inherit; }
+.field input:focus { outline: 2px solid var(--primary); border-color: transparent; }
+.row { margin-bottom: 0; }
+.row--between { margin-bottom: 1.25rem; font-size: 0.9rem; }
+.link { color: var(--primary); font-weight: 600; }
+.submit { width: 100%; }
+.alt { margin-top: 1rem; text-align: center; font-size: 0.9rem; }
+
+/* ===== YOUR CODE — layout + responsiveness ===== */
+

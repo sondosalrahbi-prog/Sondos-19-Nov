@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse — Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <strong class="brand">Pulse</strong>
+    <div class="user">
+      <img class="user-avatar" src="images/avatar.svg" width="40" height="40" alt="">
+      <span>Amira</span>
+    </div>
+  </div>
+</header>
+
+<main class="container dash">
+    <article class="stat card"><p class="muted">Revenue</p><p class="stat-value">$48.2k</p><p class="stat-change">+12% this week</p></article>
+    <article class="stat card"><p class="muted">Orders</p><p class="stat-value">1,284</p><p class="stat-change">+5% this week</p></article>
+    <article class="stat card"><p class="muted">Visitors</p><p class="stat-value">32.9k</p><p class="stat-change">+18% this week</p></article>
+    <article class="stat card"><p class="muted">Refunds</p><p class="stat-value">23</p><p class="stat-change">-3% this week</p></article>
+
+  <section class="chart card">
+    <h2>Sales, last 12 weeks</h2>
+    <div class="bars"><span class="bar" style="height: 40%"></span><span class="bar" style="height: 55%"></span><span class="bar" style="height: 35%"></span><span class="bar" style="height: 70%"></span><span class="bar" style="height: 60%"></span><span class="bar" style="height: 80%"></span><span class="bar" style="height: 65%"></span><span class="bar" style="height: 90%"></span><span class="bar" style="height: 75%"></span><span class="bar" style="height: 55%"></span><span class="bar" style="height: 85%"></span><span class="bar" style="height: 95%"></span></div>
+  </section>
+
+  <section class="activity card">
+    <h2>Recent activity</h2>
+    <ul>
+        <li class="act"><span class="act-text"><strong>Amira</strong> paid invoice #1042</span><span class="act-time muted">2m</span></li>
+        <li class="act"><span class="act-text"><strong>Jonas</strong> opened a new ticket</span><span class="act-time muted">14m</span></li>
+        <li class="act"><span class="act-text"><strong>Lea</strong> left a 5-star review</span><span class="act-time muted">1h</span></li>
+        <li class="act"><span class="act-text"><strong>Omar</strong> updated the pricing page</span><span class="act-time muted">3h</span></li>
+        <li class="act"><span class="act-text"><strong>Sana</strong> refunded order #1011</span><span class="act-time muted">5h</span></li>
+        <li class="act"><span class="act-text"><strong>Ivan</strong> joined the team</span><span class="act-time muted">1d</span></li>
+    </ul>
+  </section>
+
+  <section class="goals card">
+    <h2>Goals</h2>
+    <ul>
+        <li class="goal"><p>Monthly revenue <span class="muted">72%</span></p><div class="progress"><span style="width: 72%"></span></div></li>
+        <li class="goal"><p>New customers <span class="muted">48%</span></p><div class="progress"><span style="width: 48%"></span></div></li>
+        <li class="goal"><p>Support response time <span class="muted">91%</span></p><div class="progress"><span style="width: 91%"></span></div></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

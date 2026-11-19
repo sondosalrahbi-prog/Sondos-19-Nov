@@ -1,0 +1,86 @@
+/* Practice 4 — Pricing cards
+
+   Goal: Show three pricing plans side by side on tablet and desktop, and one under another on mobile.
+
+   Rules (a screenshot cannot show these):
+     - All three cards have the same height, even though they list a different number of features.
+     - Every "Choose" button sits at the bottom edge of its card.
+     - Desktop only (1024px and wider): the highlighted card is slightly bigger than the others.
+     - Mobile: the highlighted plan comes first, and the cards never get wider than 420px.
+
+   Target: see target.png (mobile 375 · tablet 768 · desktop 1280).
+   Drag the browser window between 320px and 1400px: there must be no
+   horizontal scrollbar at any width. Do not edit index.html.
+*/
+
+/* ===== GIVEN — already finished, you do not need to change it ===== */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.container { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.muted { color: var(--muted); }
+
+.pricing { padding: 3rem 0 4rem; }
+.pricing-head { text-align: center; margin-bottom: 2.5rem; }
+.pricing-head h1 { font-size: 2.25rem; margin-bottom: 0.4rem; }
+.plan h2 { font-size: 1.3rem; }
+.plan-price { font-size: 2.5rem; font-weight: 800; margin: 1rem 0; }
+.plan-price span { font-size: 1rem; font-weight: 500; color: var(--muted); }
+.plan ul { margin-bottom: 1.5rem; }
+.plan li { padding: 0.45rem 0; border-bottom: 1px solid var(--border); }
+.plan .btn { text-align: center; }
+.plan--featured { border: 2px solid var(--primary); background: #f5f3ff; }
+.badge { display: inline-block; align-self: flex-start; margin-bottom: 0.5rem; padding: 0.15rem 0.6rem; border-radius: 99px; background: var(--primary); color: #fff; font-size: 0.8rem; font-weight: 700; }
+
+/* ===== YOUR CODE — layout + responsiveness ===== */
+

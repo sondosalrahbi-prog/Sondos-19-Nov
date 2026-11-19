@@ -1,0 +1,90 @@
+/* Homework 1 — Restaurant menu
+
+   Goal: Build a menu page: a "chef's special" banner, then four menu sections in two columns. Every dish is a row with the name on the left and the price on the right, joined by a dotted line.
+
+   Rules (a screenshot cannot show these):
+     - The dotted line between the name and the price takes all the free space of the row and sits on the text baseline (use flex on .item-row and a flexible .leader).
+     - Special banner: picture takes 40% of the width, text takes the rest. On mobile they stack and the picture is full width.
+     - Menu: 2 columns on tablet and desktop, 1 column on mobile.
+     - Hint: if the picture refuses to shrink to 40%, remember that flex items have min-width: auto.
+
+   Target: see target.png (mobile 375 · tablet 768 · desktop 1280).
+   Drag the browser window between 320px and 1400px: there must be no
+   horizontal scrollbar at any width. Do not edit index.html.
+*/
+
+/* ===== GIVEN — already finished, you do not need to change it ===== */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.container { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.muted { color: var(--muted); }
+
+.menu-hero { padding: 3rem 0; background: #1f2937; color: #fff; text-align: center; }
+.menu-hero p { color: #d1d5db; margin-top: 0.4rem; }
+
+.special { margin-block: 2rem; padding: 1rem; }
+.special-text > * + * { margin-top: 0.75rem; }
+.special-img { border-radius: 8px; }
+.special-price { font-weight: 800; font-size: 1.25rem; color: var(--primary); }
+
+.menu { padding-bottom: 3rem; }
+.menu-section h2 { margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--text); font-size: 1.3rem; }
+.item { margin-bottom: 1rem; }
+.name { font-weight: 600; }
+.price { font-weight: 700; color: var(--primary); }
+.desc { color: var(--muted); font-size: 0.9rem; }
+.leader { border-bottom: 2px dotted #9ca3af; }
+
+/* ===== YOUR CODE — layout + responsiveness ===== */
+

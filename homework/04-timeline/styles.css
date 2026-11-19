@@ -1,0 +1,82 @@
+/* Homework 4 — Event schedule
+
+   Goal: Show a conference schedule that changes its direction: a horizontal timeline on desktop, a vertical list on tablet and a stacked list on mobile.
+
+   Rules (a screenshot cannot show these):
+     - Desktop: four events side by side, each is a column (time on top of the card). All four cards are equally tall.
+     - Tablet: events one under another; inside each event the time is on the left (a fixed 5rem wide column) and the card fills the rest.
+     - Mobile: events one under another and, inside each event, time above the card.
+     - Only flexbox is allowed in this task. The magic is flex-direction (on two levels) and flex: 1.
+
+   Target: see target.png (mobile 375 · tablet 768 · desktop 1280).
+   Drag the browser window between 320px and 1400px: there must be no
+   horizontal scrollbar at any width. Do not edit index.html.
+*/
+
+/* ===== GIVEN — already finished, you do not need to change it ===== */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.container { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.muted { color: var(--muted); }
+
+.schedule { padding-block: 2.5rem 4rem; }
+.schedule-head { margin-bottom: 2rem; }
+.schedule-head h1 { font-size: 2rem; margin: 0.25rem 0; }
+
+.event { padding-top: 0.75rem; border-top: 3px solid var(--primary); }
+.time { font-size: 1.25rem; font-weight: 800; color: var(--primary); }
+.event-card h2 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+
+/* ===== YOUR CODE — layout + responsiveness ===== */
+

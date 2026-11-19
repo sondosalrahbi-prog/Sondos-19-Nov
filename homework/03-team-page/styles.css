@@ -1,0 +1,85 @@
+/* Homework 3 — Team page
+
+   Goal: Show eight team members as cards: 4 per row on desktop, 3 on tablet, 2 on mobile. An incomplete last row is centered.
+
+   Rules (a screenshot cannot show these):
+     - Use flex with wrapping (not grid): the cards in the last row must be centered, not stuck to the left.
+     - Card widths are written as percentages, taking the gaps into account, e.g. calc((100% - 3 * 1.5rem) / 4) for 4 per row. No fixed pixel widths.
+     - Page header: title on the left, button on the right; on a narrow screen the button wraps below the title.
+     - The "We are hiring" block is centered both ways (text and button).
+
+   Target: see target.png (mobile 375 · tablet 768 · desktop 1280).
+   Drag the browser window between 320px and 1400px: there must be no
+   horizontal scrollbar at any width. Do not edit index.html.
+*/
+
+/* ===== GIVEN — already finished, you do not need to change it ===== */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.container { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.muted { color: var(--muted); }
+
+.team-page { padding-block: 2.5rem 4rem; }
+.team-head { margin-bottom: 2rem; }
+.team-head h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+
+.member { padding: 1.25rem 0.75rem; text-align: center; }
+.avatar { width: 96px; height: 96px; margin: 0 auto 0.9rem; border-radius: 50%; object-fit: cover; }
+.member h2 { font-size: 1.05rem; }
+
+.join { margin-top: 2.5rem; padding: 2rem 1rem; background: #eef2ff; border-color: #c7d2fe; }
+.join > * + * { margin-top: 0.75rem; }
+
+/* ===== YOUR CODE — layout + responsiveness ===== */
+

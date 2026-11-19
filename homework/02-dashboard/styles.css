@@ -1,0 +1,96 @@
+/* Homework 2 — Admin dashboard
+
+   Goal: Lay out a dashboard: four stat cards, a big chart, an activity list and a goals card. Desktop has 4 columns, tablet 2, mobile 1.
+
+   Rules (a screenshot cannot show these):
+     - Desktop: the chart and the goals card are 3 columns wide; the activity list is one column wide and as tall as both of them together.
+     - Tablet: chart takes the full width; activity and goals share the next row. When you change the number of columns, remember to reset the column/row you placed items in.
+     - Top bar: title on the left, user on the right, vertically centered.
+     - Chart bars: all 12 bars share the width equally, stand on the bottom line and their height comes from the inline style.
+     - Activity list: the time is pushed to the far right of each row.
+
+   Target: see target.png (mobile 375 · tablet 768 · desktop 1280).
+   Drag the browser window between 320px and 1400px: there must be no
+   horizontal scrollbar at any width. Do not edit index.html.
+*/
+
+/* ===== GIVEN — already finished, you do not need to change it ===== */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { line-height: 1.2; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.container { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.muted { color: var(--muted); }
+
+.topbar { padding: 0.9rem 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+.brand { font-size: 1.25rem; color: var(--primary); }
+.user { gap: 0.6rem; font-weight: 600; }
+.user-avatar { width: 40px; height: 40px; border-radius: 50%; }
+
+.dash { padding-block: 1.5rem 3rem; }
+.dash h2 { font-size: 1.05rem; margin-bottom: 1rem; }
+.stat-value { font-size: 1.75rem; font-weight: 800; margin: 0.25rem 0; }
+.stat-change { font-size: 0.85rem; color: #059669; }
+
+.bars { height: 220px; gap: 8px; }
+.bar { background: linear-gradient(var(--primary), #818cf8); border-radius: 6px 6px 0 0; }
+
+.act { padding: 0.65rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+.act-time { font-size: 0.8rem; }
+
+.goal { margin-bottom: 1rem; }
+.goal p { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.progress { height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+
+/* ===== YOUR CODE — layout + responsiveness ===== */
+
