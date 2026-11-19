@@ -80,3 +80,24 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ===== YOUR CODE — layout + responsiveness ===== */
 
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.nav , .nav-links{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media screen and (max-width:568px) {
+  .nav , .navbar{
+    flex-direction: column;
+  }
+ .navbar{
+  gap: 1.5rem;
+ }
+}
